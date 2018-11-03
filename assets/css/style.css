@@ -1,0 +1,31 @@
+body {
+    background-color: rgba(8, 133, 8, 0.746);
+}
+.logo {
+    background-color: black;
+    border: solid grey 3px;
+    border-radius: 15%;
+    margin-top: 25px;
+}
+.header {
+    font-family: 'Neucha', cursive;
+    font-size: 200px;
+    text-align: center;
+    margin-top: 15px;
+}
+.header-1 {
+    font-family: 'Creepster', cursive;
+    font-size: 75px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.l-sec {
+    border: dotted black 3px;
+    text-align: center;
+}
+.r-sec {
+    border: dotted black 3px;
+}
+.h1 {
+    font-family: 'Creepster', cursive;
+}
