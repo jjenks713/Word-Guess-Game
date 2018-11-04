@@ -22,9 +22,13 @@ body {
 .l-sec {
     border: dotted black 3px;
     text-align: center;
+    padding-bottom: 100%;
 }
 .r-sec {
     border: dotted black 3px;
+    font-family: 'Neucha', cursive;
+    font-size: 40px;
+    padding-bottom: 100%;
 }
 .h1 {
     font-family: 'Creepster', cursive;
