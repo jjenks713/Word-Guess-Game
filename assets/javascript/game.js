@@ -1,31 +1,38 @@
-window.onload = function () {
-
-
-    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
-        "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    //pick a random word
-    var monsters = ["Dracula", "Frankenstein", "Wolfman", "Mummy", "Godzilla"];
-
-
-
+ //pick a random word
+    var monsterWords = ["Dracula", "Frankenstein", "Wolfman", "Mummy", "Godzilla"];
+    var lettersInWord = [];
+    var numberOfBlanks = 0;
+    var selectedWord = "";
     // keep track of score
     var wins = 0;
-
-
-
-
-
     //keep track of guesses left
     var guessLeft = 10;
+    // while (numGuess = 0) {
+    //     numGuesses.textContent = "Game Over!"
+    // }
+
+    function getRandomMonsters() {
+        selectedWord = monsterWords[Math.floor(Math.random() = monsters.length)];
+        console.log(selectedWord);
+    }
+
+    function calculateLettersInWord() {
+        numbersOfBlanks = monsterWords.length;
+        console.log(numbersOfBlanks);
+    }
+    function getLettersInWOrd() {
+        lettersInWord = selectedWord.split('')
+    }
+
 
 
 
     //display guessed letters
 
 
-    var wins = document.getElementById("wins-text").innerHTML = "0";
-    var wordLines = document.getElementById("word-lines").innerHTML = "_ _ _ _ _ _ _";
-    var guessLeft = document.getElementById("num-guesses").innerHTML = "10";
+    var winsText = document.getElementById("wins-text");
+    var wordLines = document.getElementById("word-lines");
+    var numGuesses = document.getElementById("num-guesses");
     var lettersGuessed = document.getElementById("letters-guessed");
 
 
@@ -33,77 +40,49 @@ window.onload = function () {
     // function grabsWord(word) {
 
 
+
+    // userGuess function:
     document.onkeyup = function (event) {
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-        var userGuess = event.key;
-
-        var wordChoise = monsters[Math.floor(math.random() * monsters.length)];
-
-        while (monsters[0]) {
-
-            if ((userGuess === "d") || (userGuess === "r") || (userGuess === "a") || (userGuess === "c")
-                || (userGuess === "u") || (userGuess === "l")) {
+        
+            
+        
+            if (userGuess === monsterWords[0].charAt[1]) {
                 wordLines.textContent = userGuess;
             }
-            else if ((userGuess === "d") && (userGuess === "r") && (userGuess === "a") && (userGuess === "c")
-                && (userGuess === "u") && (userGuess === "l")) {
-                wins++;
-            } else {
-                guessLeft--;
-            }
-        }
-        while (monsters[1]) {
-
-            if ((userGuess === "d") || (userGuess === "r") || (userGuess === "a") || (userGuess === "c")
-                || (userGuess === "u") || (userGuess === "l")) {
+            if (userGuess === "r") /*monsters[0].charAt[1])*/ {
+                wordLines.textContent = userGuess;
+            } 
+            if (userGuess === "a") /*monsters[0].charAt[2])*/ {
                 wordLines.textContent = userGuess;
             }
-            else if ((userGuess === "d") && (userGuess === "r") && (userGuess === "a") && (userGuess === "c")
-                && (userGuess === "u") && (userGuess === "l")) {
-                wins++;
-            } else {
-                guessLeft--;
-            }
-        }
-        while (monsters[2]) {
-
-            if ((userGuess === "d") || (userGuess === "r") || (userGuess === "a") || (userGuess === "c")
-                || (userGuess === "u") || (userGuess === "l")) {
+            if (userGuess === "c") /*monsters[0].charAt[3])*/ {
                 wordLines.textContent = userGuess;
             }
-            else if ((userGuess === "d") && (userGuess === "r") && (userGuess === "a") && (userGuess === "c")
-                && (userGuess === "u") && (userGuess === "l")) {
-                wins++;
-            } else {
-                guessLeft--;
-            }
-        }
-        while (monsters[3]) {
-
-            if ((userGuess === "d") || (userGuess === "r") || (userGuess === "a") || (userGuess === "c")
-                || (userGuess === "u") || (userGuess === "l")) {
+            if (userGuess === "u") /*monsters[0].charAt[4])*/ {
                 wordLines.textContent = userGuess;
             }
-            else if ((userGuess === "d") && (userGuess === "r") && (userGuess === "a") && (userGuess === "c")
-                && (userGuess === "u") && (userGuess === "l")) {
-                wins++;
+            if (userGuess === "l") /*monsters[0].charAt[5])*/ {
+                wordLines.textContent = userGuess;
+            }
+            else if (userGuess === monsters[0]) {
+                    wins++;
+                
             } else {
+                lettersGuessed.textContent = userGuess;
                 guessLeft--;
             }
-        }
 
 
 
+        winsText.textContent = wins;
+        // wordLines.textContent = ;
+        numGuesses.textContent = guessLeft;
 
 
-
-        // display changing content
-        wins.textContent = "Your wins: " + wins;
-        wordLines.textContent = userGuess + wordLines + wordChoise;
-        guessLeft.textContent = guessLeft;
-        lettersGuessed.textContent = lettersGuessed;
     };
-}
 
-                // grabsWord()
+
+
 
