@@ -1,4 +1,5 @@
 //pick a random word
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var monsterWords = ["Dracula", "Frankenstein", "Wolfman", "Mummy", "Godzilla"];
 var lettersInWord = [];
 var numberOfBlanks = 0;
@@ -24,31 +25,55 @@ numGuesses.textContent = guessLeft;
 function getRandomMonsters() {
     selectedWord = monsterWords[Math.floor(Math.random() * monsterWords.length)];
     console.log(selectedWord);
-}
-
+};
+getRandomMonsters();
 function calculateLettersInWord() {
     numberOfBlanks = selectedWord.length;
     console.log(numberOfBlanks);
-}
+};
+calculateLettersInWord();
 function getLettersInWOrd() {
     lettersInWord = selectedWord.split('');
-    for (var i = 0; i < selectedWord.split('').length; i++) {
-        i = "_";
-        wordLines.textContent = selectedWord.split('')[i];
-        }
+    for (var i = 0; i < lettersInWord.length; i++) {
 
+        var textnode = document.createTextNode(" _ ");
+        wordLines.appendChild(textnode);
+        }
+           
     console.log(lettersInWord);
+};
+getLettersInWOrd();
+
+function seeIfLettersAreInWords() {
+    for (var i = 0; i < lettersInWord.length; i++) {
+        i = selectedWord.split('');
+        var textnode1 = document.createTextNode(" _ ");
+        wordLines.appendChild(textnode1);
+        var textnode = document.getElementById("word-lines").innerHTML = i;
+        wordLines.textContent = textnode1 + i;
+    }
 }
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase(); 
-        
+        seeIfLettersAreInWords()
+     
         if (userGuess === lettersInWord) {
-            wordLines.textContent = selectedWord.split('');
-            
+            wordLines.textContent = lettersInWord;
         } else {
             guessLeft--;
-            lettersGuessed.textContent = userGuess;
-        }   
+        }  
+        
+        if (guessLeft === 0) {
+            numGuesses.textContent = "Game Over!";  
+        } 
+        if (userGuess === selectedWord.lenth) {
+            wins++;
+        }
+        var textnode = document.createTextNode(" " + userGuess + " ");
+        lettersGuessed.appendChild(textnode);
+         
+        console.log(userGuess)
+           
         
         // alert("youclicked");
         
@@ -56,19 +81,19 @@ document.onkeyup = function (event) {
 
 
 winsText.textContent = wins;
-numGuesses.textContent = guessLeft;
-};
-function leftOver() {
-    if (guessLeft <= 1) {
-        numGuesses.textContent = "Game Over!";  
-    } 
-    
-};
 
-leftOver()
-getRandomMonsters();
-calculateLettersInWord();
-getLettersInWOrd();
+};
+// function leftOver() {
+
+    
+// };
+
+// leftOver()
+
+
+
+
+
 
 
 
